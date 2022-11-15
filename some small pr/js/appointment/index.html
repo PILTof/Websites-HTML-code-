@@ -1,0 +1,706 @@
+<!--<?php-->
+<!--require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/prolog_before.php");-->
+<!--?>-->
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Записаться к врачу</title>
+    <link rel="stylesheet" href="css/style.glob.css"/>
+    <link rel="stylesheet" href="css/styleform.css"/>
+</head>
+
+<body>
+<div id="main" class="v-application theme--light" style="display: block">
+    <div class="v-application--wrap">
+        <section class="v-content blue-grey lighten-5" style="padding: 0px;">
+            <div class="v-content__wrap">
+                <!---->
+                <div class="container mt-sm-10">
+                    <div class="v-stepper elevation-0 v-stepper--is-booted v-stepper--alt-labels theme--light">
+                        <div class="v-stepper__header elevation-0">
+                            <div class="v-stepper__step v-stepper__step--active v-stepper__step--editable">
+                                <span class="v-stepper__step__step accent">1</span>
+                                <div class="v-stepper__label">
+                                    <span class="caption text-center">
+                                        Клиника
+                                    </span>
+                                </div>
+                            </div>
+                            <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+                            <div class="v-stepper__step v-stepper__step--inactive">
+                                <span class="v-stepper__step__step">2</span>
+                                <div class="v-stepper__label">
+                                    <span class="caption text-center">Врач / Услуга</span>
+                                </div>
+                            </div>
+                            <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+                            <div class="v-stepper__step v-stepper__step--inactive">
+                                <span class="v-stepper__step__step">3</span>
+                                <div class="v-stepper__label">
+                                    <span class="caption text-center">Дата и время</span>
+                                </div>
+                            </div>
+                            <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+                            <div class="v-stepper__step v-stepper__step--inactive">
+                                <span class="v-stepper__step__step">4</span>
+                                <div class="v-stepper__label">
+                                    <span class="caption text-center">Данные пациента</span></div>
+                            </div>
+                            <!---->
+                        </div>
+                        <div class="v-stepper__items">
+                            <div class="v-stepper__content" style="transform-origin: center top 0px;/* display: none; */">
+                                <div class="v-stepper__wrapper">
+                                    <div class="overflow-hidden mb-3 mb-sm-0">
+                                        <button data-role="nav" data-direction="left" type="button" class="float-left v-btn v-btn--depressed v-btn--flat v-btn--outlined theme--light v-size--small accent--text">
+                                          <span  class="v-btn__content">
+                                            <i aria-hidden="true"
+                                               class="v-icon notranslate v-icon--left mdi mdi-chevron-left theme--light">
+                                            </i>
+                                              Назад
+                                          </span>
+                                        </button>
+                                        <button data-role="nav" data-direction="right" type="button" class="float-right v-btn v-btn--depressed v-btn--flat v-btn--outlined theme--light v-size--small accent--text">
+                                            <span class="v-btn__content">
+                                                Вперёд
+                                                <i aria-hidden="true"
+                                                   class="v-icon notranslate v-icon--right mdi mdi-chevron-right theme--light">
+                                                </i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="ma-md-5">
+                                        <div class="mt-10 step-clinic">
+
+                                            <div id="clinics">
+                                            </div>
+
+                                            <div>
+                                                <hr role="separator" aria-orientation="horizontal"
+                                                    class="my-4 info v-divider theme--light"
+                                                    style="opacity: 0.22;">
+                                                <div class="row justify-center">
+                                                    <div class="mb-5 col-sm-8 col-md-6 col-lg-4 col-12">
+                                                        <button type="button" data-role="all-clinic-selector"
+                                                                class="v-btn v-btn--block v-btn--depressed v-btn--flat v-btn--outlined theme--light v-size--x-large accent--text">
+                                                            <span class="v-btn__content">Все филиалы</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="v-stepper__content" style="transform-origin: center top 0px; display: none;">
+                                <div class="v-stepper__wrapper">
+                                    <div class="overflow-hidden mb-3 mb-sm-0">
+                                        <button data-role="nav" data-direction="left" type="button"
+                                                class="float-left v-btn v-btn--depressed v-btn--flat v-btn--outlined theme--light v-size--small accent--text">
+                                            <span class="v-btn__content">
+                                                <i aria-hidden="true"
+                                                   class="v-icon notranslate v-icon--left mdi mdi-chevron-left theme--light"></i>
+                                                Назад
+                                            </span>
+                                        </button>
+                                        <button data-role="nav" data-direction="right" type="button" class="float-right v-btn v-btn--depressed v-btn--flat v-btn--outlined theme--light v-size--small accent--text">
+                                            <span class="v-btn__content">
+                                                Вперёд
+                                                <i aria-hidden="true"
+                                                   class="v-icon notranslate v-icon--right mdi mdi-chevron-right theme--light">
+                                                </i>
+                                            </span>
+                                        </button>
+                                    </div>
+
+
+                                    <div class="ma-md-5">
+                                        <div class="step-doctor">
+                                            <h2 class="text-center title mb-5 hidden-xs-only">
+                                                Выберите специальность, врача по ФИО или необходимую услугу</h2>
+                                            <div class="row step-doctor-wrap justify-center">
+                                                <div class="col-md-6 col-lg-4 col-12">
+                                                    <button type="button"
+                                                            class="adapt37 d-sm-none v-btn v-btn--block v-btn--depressed theme--light v-size--x-large accent white--text">
+                                                        <span class="v-btn__content"> Выбрать специальность </span>
+                                                    </button>
+                                                    <!--                                                        СПЕЦИАЛЬНОСТИ-->
+                                                    <div class="adapt37 mx-auto v-card v-sheet theme--light hidden-xs-only"
+                                                         style="max-width: 600px;">
+                                                        <div class="v-input v-input--hide-details theme--light v-text-field v-text-field--filled v-text-field--is-booted v-text-field--enclosed v-text-field--shaped">
+                                                            <div class="v-input__control">
+                                                                <div class="v-input__slot">
+                                                                    <div class="v-text-field__slot">
+                                                                        <input id="input37" type="text" placeholder="Поиск специальности...">
+                                                                    </div>
+                                                                    <div class="v-input__append-inner">
+                                                                        <div class="v-input__icon v-input__icon--clear">
+                                                                            <button disabled="disabled"
+                                                                                    type="button"
+                                                                                    aria-label="clear icon"
+                                                                                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light">
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div role="list"
+                                                             class="v-list overflow-y-auto v-sheet v-sheet--tile theme--light"
+                                                             style="max-height: 300px;">
+
+                                                            <div role="listbox" id="profession-selector"
+                                                                 class="v-item-group theme--light v-list-item-group primary--text">
+                                                            </div>
+                                                        </div>
+
+                                                        <!---->
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-6 col-lg-4 col-12">
+                                                    <button type="button"
+                                                            class="adapt41 d-sm-none v-btn v-btn--block v-btn--depressed theme--light v-size--x-large accent white--text"><span
+                                                            class="v-btn__content"> Выбрать врача </span>
+                                                    </button>
+                                                    <div class="adapt41 mx-auto v-card v-sheet theme--light hidden-xs-only"
+                                                         style="max-width: 600px;">
+                                                        <div class="v-input v-input--hide-details theme--light v-text-field v-text-field--solo-flat v-text-field--filled v-text-field--is-booted v-text-field--enclosed">
+                                                            <div class="v-input__control">
+                                                                <div class="v-input__slot">
+                                                                    <div class="v-text-field__slot">
+                                                                        <input id="input41" type="text"
+                                                                               placeholder="Поиск врача по ФИО...">
+                                                                    </div>
+                                                                    <div class="v-input__append-inner">
+                                                                        <div class="v-input__icon v-input__icon--clear">
+                                                                            <button disabled="disabled"
+                                                                                    type="button"
+                                                                                    aria-label="clear icon"
+                                                                                    class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"></button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--ВРАЧИ-->
+                                                        <div role="list"
+                                                             class="v-list overflow-y-auto v-sheet v-sheet--tile theme--light v-list--three-line"
+                                                             style="max-height: 300px;">
+                                                            <div role="listbox" id="doctors-selector"
+                                                                 class="v-item-group theme--light v-list-item-group primary--text">
+                                                            </div>
+                                                        </div>
+                                                        <!---->
+                                                    </div>
+                                                </div>
+                                                <!---->
+                                            </div>
+                                            <!---->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="v-stepper__content" style="transform-origin: center top 0px; display: none;">
+                                <div class="v-stepper__wrapper">
+                                    <div class="overflow-hidden mb-3 mb-sm-0">
+                                        <button data-role="nav" data-direction="left" type="button"
+                                                class="float-left v-btn v-btn--depressed v-btn--flat v-btn--outlined theme--light v-size--small accent--text"
+                                                style="">
+                                            <span class="v-btn__content">
+                                                <i aria-hidden="true"
+                                                   class="v-icon notranslate v-icon--left mdi mdi-chevron-left theme--light"></i>
+                                                Назад
+                                            </span>
+                                        </button>
+                                        <button data-role="nav" data-direction="right" type="button"
+                                                class="float-right v-btn v-btn--depressed v-btn--flat v-btn--outlined theme--light v-size--small accent--text"
+                                                style="">
+                                            <span class="v-btn__content">
+                                                Вперёд
+                                                <i aria-hidden="true"
+                                                   class="v-icon notranslate v-icon--right mdi mdi-chevron-right theme--light"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+
+                                    <div class="ma-md-5">
+                                        <div id="step-datetime-calendar" class="step-datetime" style="display:none;">
+                                            <!---->
+                                            <div class="row justify-center">
+                                                <div class="text-center col-sm-8 col-md-6 col-12">
+                                                    <div class="v-picker v-card v-picker--date theme--light">
+                                                        <div class="v-picker__title accent">
+                                                            <div class="v-date-picker-title">
+                                                                <div class="v-picker__title__btn v-date-picker-title__year">
+                                                                </div>
+                                                                <div class="v-picker__title__btn v-date-picker-title__date v-picker__title__btn--active">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="v-picker__body theme--light"
+                                                             style="width: 290px;">
+                                                            <div>
+                                                                <div class="v-date-picker-header theme--light">
+                                                                    <button data-role="calendar-left" type="button" class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default">
+                                                                        <span class="v-btn__content">
+                                                                            <
+                                                                        </span>
+                                                                    </button>
+                                                                    <div class="v-date-picker-header__value">
+                                                                        <div id="month-picker" data-month="" data-year="" class="accent--text">
+                                                                        </div>
+                                                                    </div>
+                                                                    <button data-role="calendar-right" type="button" class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default">
+                                                                        <span class="v-btn__content">
+                                                                            >
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="v-date-picker-table v-date-picker-table--date theme--light">
+                                                                    <table id="calendar">
+                                                                        <tr>
+                                                                            <th>П</th>
+                                                                            <th>В</th>
+                                                                            <th>С</th>
+                                                                            <th>Ч</th>
+                                                                            <th>П</th>
+                                                                            <th>С</th>
+                                                                            <th>В</th>
+                                                                        </tr>
+                                                                        <tbody>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 col-md-6 col-12">
+                                                    <div id="selector-schedule" class="intervals mb-5">
+                                                        <div class="mb-5">
+                                                            <div class="subtitle-2 font-weight-bold">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!---->
+                                        </div>
+                                        <div id="step-datetime-message" class="row justify-center" style="display:none;">
+                                            <div class="col-lg-8 col-12">
+                                                <div role="alert" class="v-alert pa-5 v-sheet theme--light elevation-2 v-alert--border v-alert--border-top">
+                                                    <div class="v-alert__wrapper">
+                                                        <div class="v-alert__content">
+                                                            <div class="row align-center justify-center">
+                                                                <div class="text-center col-sm-8 col-md-2 col-12">
+                                                                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-exclamation-thick theme--light warning--text" style="font-size: 70px;">
+
+                                                                    </i>
+                                                                </div>
+                                                                <div class="col-sm-8 col-md-10 col-12">
+                                                                    <h3 class="headline mb-5">Нет свободного времени для записи</h3>
+                                                                    <div><p>При отсутствии свободного времени записи к конкретному специалисту или на конкретную
+                                                                        услугу вы можете подать заявку по телефону: +7(812)6047003</p>
+                                                                        <p>Мы перезвоним вам в рабочее время и согласуем возможность записи.</p>
+                                                                        <p>Вы также можете попробовать другой поиск.</p></div>
+                                                                </div>
+                                                            </div>
+                                                            <hr role="separator" aria-orientation="horizontal" class="my-4 accent v-divider theme--light"
+                                                                style="opacity: 0.22;">
+                                                            <div class="text-center">
+                                                                <button type="button" data-role="reload" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default accent mr-5 mb-5 mb-sm-0">
+                                                                    <span class="v-btn__content"> Другой поиск </span>
+                                                                </button>
+                                                                <a href="tel:+7(812)6047003"
+                                                                   class="v-btn v-btn--outlined theme--light v-size--default accent--text">
+                                                                    <span class="v-btn__content"> Позвонить </span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="v-alert__border v-alert__border--top accent v-alert__border--has-color"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="v-stepper__content" style="transform-origin: center top 0px; display: none">
+                                <div class="v-stepper__wrapper">
+                                    <div class="overflow-hidden mb-3 mb-sm-0">
+                                        <button data-role="nav" data-direction="left" type="button"
+                                                class="float-left v-btn v-btn--depressed v-btn--flat v-btn--outlined theme--light v-size--small accent--text">
+                                            <span class="v-btn__content">
+                                                <i aria-hidden="true"
+                                                   class="v-icon notranslate v-icon--left mdi mdi-chevron-left theme--light"></i>
+                                                Назад
+                                            </span>
+                                        </button>
+                                        <button data-role="nav" data-direction="right" type="button" class="float-right v-btn v-btn--depressed v-btn--flat v-btn--outlined theme--light v-size--small accent--text">
+                                            <span class="v-btn__content">
+                                                Вперёд
+                                                <i aria-hidden="true" class="v-icon notranslate v-icon--right mdi mdi-chevron-right theme--light"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="ma-md-5">
+                                        <form id="userdata" class="v-form step-personal" style="display: block">
+                                            <div class="row hidden-xs-only justify-center">
+                                                <div class="pb-0 col-sm-6 col-lg-4 col-12">
+                                                    <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--enclosed v-text-field--outlined">
+                                                        <div class="v-input__control">
+                                                            <div class="v-input__slot">
+                                                                <fieldset aria-hidden="true">
+                                                                    <legend style="width: 0px;"><span>​</span></legend>
+                                                                </fieldset>
+                                                                <div class="v-text-field__slot">
+                                                                    <input  type="text"
+                                                                            name="last_name"
+                                                                            value=""
+                                                                            id="last_name"
+                                                                            required="required"
+                                                                            placeholder="Фамилия*">
+                                                                </div>
+                                                            </div>
+                                                            <div class="v-text-field__details">
+                                                                <div class="v-messages theme--light">
+                                                                    <div class="v-messages__wrapper"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="pb-0 col-sm-6 col-lg-4 col-12">
+                                                    <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--enclosed v-text-field--outlined">
+                                                        <div class="v-input__control">
+                                                            <div class="v-input__slot">
+                                                                <fieldset aria-hidden="true">
+                                                                    <legend style="width: 0px;"><span>​</span></legend>
+                                                                </fieldset>
+                                                                <div class="v-text-field__slot">
+                                                                    <input type="text"
+                                                                           name="first_name"
+                                                                           value=""
+                                                                           id="first_name"
+                                                                           required="required"
+                                                                           placeholder="Имя*">
+                                                                </div>
+                                                            </div>
+                                                            <div class="v-text-field__details">
+                                                                <div class="v-messages theme--light">
+                                                                    <div class="v-messages__wrapper"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!---->
+                                            </div>
+                                            <div class="row hidden-xs-only justify-center">
+                                                <div class="pb-0 col-sm-6 col-lg-4 col-12">
+                                                    <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--enclosed v-text-field--outlined">
+                                                        <div class="v-input__control">
+                                                            <div class="v-input__slot">
+                                                                <fieldset aria-hidden="true">
+                                                                    <legend style="width: 0px;"><span>​</span></legend>
+                                                                </fieldset>
+                                                                <div class="v-text-field__slot">
+                                                                    <input  type="text"
+                                                                            name="third_name"
+                                                                            value=""
+                                                                            id="third_name"
+                                                                            placeholder="Отчество">
+                                                                </div>
+                                                            </div>
+                                                            <div class="v-text-field__details">
+                                                                <div class="v-messages theme--light">
+                                                                    <div class="v-messages__wrapper"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="pb-0 col-sm-6 col-lg-4 col-12">
+                                                    <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--enclosed v-text-field--outlined">
+                                                        <div class="v-input__control">
+                                                            <div class="v-input__slot">
+                                                                <fieldset aria-hidden="true">
+                                                                    <legend style="width: 0px;"><span>​</span></legend>
+                                                                </fieldset>
+                                                                <div class="v-text-field__slot">
+                                                                    <input type="text"
+                                                                           name="birth_date"
+                                                                           value=""
+                                                                           id="birth_date"
+                                                                           required="required"
+                                                                           placeholder="Дата рождения* (дд.мм.гггг)">
+                                                                </div>
+                                                            </div>
+                                                            <div class="v-text-field__details">
+                                                                <div class="v-messages theme--light">
+                                                                    <div class="v-messages__wrapper"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!---->
+                                            </div>
+                                            <div class="row hidden-xs-only justify-center">
+                                                <div class="pb-0 col-sm-6 col-lg-4 col-12">
+                                                    <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-text-field--enclosed v-text-field--outlined">
+                                                        <div class="v-input__control">
+                                                            <div class="v-input__slot">
+                                                                <fieldset aria-hidden="true">
+                                                                    <legend style="width: 0px;"><span>​</span></legend>
+                                                                </fieldset>
+                                                                <div class="v-text-field__slot">
+                                                                    <input class="art-stranger"
+																																					 type="tel"
+                                                                           name="mobile"
+                                                                           required="required"
+                                                                           value=""
+                                                                           id="mobile"
+                                                                           placeholder="Телефон*">
+                                                                </div>
+                                                            </div>
+                                                            <div class="v-text-field__details">
+                                                                <div class="v-messages theme--light">
+                                                                    <div class="v-messages__wrapper"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="pb-0 col-sm-6 col-lg-4 col-12">
+                                                    <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--enclosed v-text-field--outlined">
+                                                        <div class="v-input__control">
+                                                            <div class="v-input__slot">
+                                                                <fieldset aria-hidden="true">
+                                                                    <legend style="width: 0px;"><span>​</span></legend>
+                                                                </fieldset>
+                                                                <div class="v-text-field__slot">
+                                                                    <input type="text"
+                                                                           name="email"
+                                                                           id="email"
+                                                                           value=""
+                                                                           placeholder="E-mail">
+                                                                </div>
+                                                            </div>
+                                                            <div class="v-text-field__details">
+                                                                <div class="v-messages theme--light">
+                                                                    <div class="v-messages__wrapper"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!---->
+                                            </div>
+                                        <!---->
+                                        </form>
+                                        <form id="usermobverify" novalidate="novalidate" class="v-form step-personal" style="display:none;"><!---->
+                                            <div>
+                                                <div class="row justify-center">
+                                                    <div class="pb-0 col-sm-8 col-lg-6 col-xl-4 col-12">
+                                                        <div role="alert" class="v-alert v-sheet theme--dark accent">
+                                                            <div class="v-alert__wrapper">
+                                                                <div class="v-alert__content">Код подтверждения отправлен на: <strong></strong></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--enclosed v-text-field--outlined">
+                                                            <div class="v-input__control">
+                                                                <div class="v-input__slot">
+                                                                    <fieldset aria-hidden="true">
+                                                                        <legend style="width: 0px;"><span class="notranslate">​</span></legend>
+                                                                    </fieldset>
+                                                                    <div class="v-text-field__slot">
+                                                                        <input  type="tel"
+                                                                                name="code"
+                                                                                value=""
+                                                                                id="input-sms"
+                                                                                placeholder="Код из СМС*"
+                                                                                >
+                                                                    </div>
+                                                                </div>
+                                                                <div class="v-text-field__details">
+                                                                    <div class="v-messages theme--light">
+                                                                        <div class="v-messages__wrapper"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-space-between flex-wrap mb-2">
+                                                            <button data-role="changemobile" type="button"
+                                                                     class="v-btn v-btn--text theme--light v-size--default accent--text">
+                                                                    Изменить номер
+                                                            </button>
+                                                            <button data-role="sms-resend" type="button"
+                                                                    class="v-btn v-btn--text theme--light v-size--default accent--text">
+                                                                    Отправить повторно
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="row justify-center">
+                                            <div class="text-center pt-0 col-sm-8 col-lg-4 col-12">
+                                                <button type="button" data-role="createappoint" class="mt-0 mt-sm-5 white--text v-btn v-btn--depressed theme--light v-size--default accent">
+                                                    <span  class="v-btn__content"> Записаться </span>
+                                                </button>
+                                                <!---->
+                                                <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox accent--text">
+                                                    <div class="v-input__control">
+                                                        <div class="v-input__slot">
+                                                            <div class="v-input--selection-controls__input">
+                                                                <input
+                                                                        name="user_consent"
+                                                                        id="user_consent"
+                                                                        type="checkbox"
+                                                                        required="required"
+                                                                >
+                                                            </div>
+                                                            <label for="user_consent" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">
+                                                                <a target="_blank" href="https://lazaretspb.ru/about-the-clinic/politika-obrabotki-personalnykh-dannykh/">
+                                                                    Я согласен(а) на обработку персональных данных
+                                                                </a>
+                                                            </label>
+                                                        </div>
+                                                        <div class="v-messages theme--light accent--text">
+                                                            <div class="v-messages__wrapper"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+            </div>
+        </section>
+    </div>
+</div>
+
+<div id="step-final"  data-app="true" class="v-application v-application--is-ltr theme--light" style="display: none">
+    <div class="v-application--wrap">
+        <main class="v-main blue-grey lighten-5" data-booted="true" style="padding: 0px;">
+            <div class="v-main__wrap"><!----><!---->
+                <div class="container mt-sm-10 step-success">
+                    <div class="row justify-center">
+                        <div class="col-sm-8 col-md-6 col-lg-4 col-12">
+                            <div role="alert"
+                                 class="v-alert pa-5 v-sheet theme--light v-alert--border v-alert--border-top">
+                                <div class="v-alert__wrapper">
+                                    <div class="v-alert__content">
+                                        <div class="row align-center justify-center">
+                                            <div
+                                                 class="text-center d-none d-sm-block col-sm-8 col-md-2 col-12"><i
+                                                    aria-hidden="true"
+                                                    class="v-icon notranslate mdi mdi-check-bold theme--light success--text"
+                                                    style="font-size: 70px;"></i></div>
+                                            <div class="col-sm-8 col-md-10 col-12">
+                                                <h3 class="headline mb-5">Вы успешно записались</h3>
+                                                <div
+                                                     class="v-data-table v-data-table--dense theme--light">
+                                                    <div class="v-data-table__wrapper">
+                                                        <table>
+                                                            <tbody >
+                                                            <tr >
+                                                                <th class="pl-0"
+                                                                    style="white-space: nowrap;">Тип записи
+                                                                </th>
+                                                                <td class="py-2">
+                                                                </td>
+                                                            </tr>
+                                                            <tr >
+                                                                <th class="pl-0"
+                                                                    style="white-space: nowrap;">Клиника
+                                                                </th>
+                                                                <td class="py-2">
+                                                                </td>
+                                                            </tr>
+                                                            <tr >
+                                                                <th class="pl-0"
+                                                                    style="white-space: nowrap;">Врач
+                                                                </th>
+                                                                <td class="py-2">
+                                                                </td>
+                                                            </tr><!---->
+                                                            <tr >
+                                                                <th class="pl-0"
+                                                                    style="white-space: nowrap;">Дата и время
+                                                                </th>
+                                                                <td class="py-2">
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr role="separator" aria-orientation="horizontal"
+                                            class="my-4 info v-divider theme--light" style="opacity: 0.22;">
+                                        <p class="caption"> Вы успешно записаны на прием. Если
+                                            произойдут изменения, мы обязательно уведомим Вас, по указанным
+                                            контактным данным. <br> Сейчас вы можете перейти на
+                                            следующую страницу или записаться еще. <span>
+                                                <br> Автоматический переход произойдет через </span>
+                                        </p>
+                                        <div class="text-center">
+                                            <button data-role="repeatapp" type="button" class="mr-5 mb-5 mb-sm-0 v-btn v-btn--outlined theme--light v-size--default accent--text">
+                                                <span class="v-btn__content"> Записаться ещё </span>
+                                            </button><!---->
+                                        </div>
+                                    </div>
+                                    <div class="v-alert__border v-alert__border--top accent v-alert__border--has-color"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/main.js"></script>
+
+<script src="js/maska-nomera.js" type="text/javascript" ></script>
+<script>
+	$('.art-stranger').mask('+7 (999) 999-99-99');
+	
+	$.fn.setCursorPosition = function(pos) {
+		if ($(this).get(0).setSelectionRange) {
+			$(this).get(0).setSelectionRange(pos, pos);
+		} else if ($(this).get(0).createTextRange) {
+			var range = $(this).get(0).createTextRange();
+			range.collapse(true);
+			range.moveEnd('character', pos);
+			range.moveStart('character', pos);
+			range.select();
+		}
+	};
+	
+	
+	$('input[type="tel"]').click(function(){
+			$(this).setCursorPosition(4);  // set position number
+		});
+	</script>
+
+</body>
+
+</html>

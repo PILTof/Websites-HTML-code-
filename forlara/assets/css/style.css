@@ -1,0 +1,358 @@
+* {
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
+}
+
+/* для Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 5px;
+  border: 3px solid rgba(0, 0, 0, 0);
+}
+body {
+	background-color: rgb(17, 17, 17);
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	font-size: 24px;
+	color: white;
+}
+
+button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+			 appearance: none;
+	border: 0;
+	border-radius: 0;
+	background: rgba(0, 0, 0, 0);
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+textarea {
+	width:100%;
+  height:50px;
+	background-color: rgba(0, 0, 0, 0);
+  resize: none;
+	margin-top: 9px;
+  padding:10px 0;
+  /* border-radius:15px; */
+  border:0;
+	color: white;
+	font-weight: 100;
+	font-size: 14px;
+}
+
+textarea::shadow {
+	background-color: black;
+}
+
+:root {
+
+	--navsize: 1vw;
+	/* colors */
+	--bgitem: rgba(0,16,52,1);
+	--bgnav: #0b003e;
+	--spostcolor: rgba(0, 0, 30, 0.15);
+	--spostborder: 2px rgba(0, 0, 40, 1) solid;
+}
+
+
+
+.container {
+	margin: 0 135px;
+}
+
+.main-title {
+	margin-top: 120px;
+	font-size: 35px;
+	text-align: center;
+	color: white;
+	
+}
+
+.text-nav-a {
+	line-height: 2px;
+	text-decoration: none;
+	color: white;
+	font-weight: 100;
+	font-family: 'Amatic SC', cursive;
+	font-size: 25px;
+
+}
+
+.text-nav {
+	border-radius: 4px;
+	padding: 10px 5px;
+
+}
+
+
+/* REWRITE slider on JS */
+.text-nav:hover {
+	transition: 0.3s ease-in;
+
+	background-color: var(--bgitem);
+	box-shadow: 0 0 25px 10px var(--bgitem);
+	/* border: 2px red solid; */
+}
+
+.header-wrwapp {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.header-nav {
+	border-radius: 20px;
+	background-color: var(--bgnav);
+	box-shadow: 0px 0px 1000px 10px var(--bgnav);
+	margin-top: 30px;
+	padding: 7px 2px;
+	display: flex;
+	justify-content: center;
+	column-gap: 15px;
+}
+
+.c-post-wrapp {
+	border-radius: 20px;
+	background-color: var(--spostcolor);
+	border: 2px rgba(40, 0, 40, 1) solid;
+	display: flex;
+	justify-content: space-between;
+	width: 400px;
+	padding: 20px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.c-post-btns {
+	display: flex;
+	column-gap: 10px;
+}
+
+.p-btn {
+	background: var(--bgitem);
+	border-radius: 20px;
+	margin: auto;
+	padding: 15px 15px;
+}
+
+.p-btn:hover {
+	transition: 0.3s ease-in;
+	background: rgba(47,0,52,1);
+
+}
+
+.add-img {
+	/* margin-top: -100px; */
+	transform: rotate(180deg);	
+
+}
+
+.pin-img {
+}
+
+.post-image {
+	position: relative;
+	
+}
+
+.post-image:hover .play-img{
+	transition: .25s cubic-bezier(0.075, 0.82, 0.165, 1);
+	opacity: 100;
+	cursor: pointer;
+	
+} 
+
+
+.inplay-img {
+	margin-top: 30px;
+	margin-left: 40px;
+}
+
+
+/*  */
+.play-img {
+	z-index: 2;
+	right: 75px;
+	top: 75px;
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	border-radius: 60%;
+	background-color: rgba(255, 255, 255, 0.61);
+	opacity: 0;
+
+}
+
+.circle-down {
+	background-color: rgba(201, 201, 201, 0.568);
+}
+
+.p-active {
+
+}
+
+
+
+.solopost-title {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+.solo-post-comm {
+	color: rgba(1000, 1000, 1000, 0.55);
+	overflow-y: scroll;
+	height: 300px;
+}
+
+.solopost-wrapp {
+	margin-top: 20px;
+	display: flex;
+	justify-content: left;
+	column-gap: 40px;
+	padding: 20px;
+
+}
+
+.right {
+	display: flex;
+	justify-content: space-between;
+}
+
+/* REWRITE action btn to left bottom or else*/
+.s-actions {
+	display: flex;
+	
+}
+
+.s-like-btn {
+	margin-top: -4px;
+}
+
+/* .s-like-btn:hover {
+	transition: 0.15s ease-in-out;
+	box-shadow: 0 0 300px 300px rgba(60, 0, 30, 0.15);
+	background-color: rgba(60, 0, 30, 0.10);
+} */
+
+.post {
+	margin: 40px 0;
+}
+
+.solopost {
+	border-radius: 20px;
+	background-color: var(--spostcolor);
+	border: var(--spostborder);
+	box-shadow: 0px 0px 1000px 10px var(--bgnav);
+}
+
+.s-post-player {
+	/* position: fixed; */
+
+	display: flex;
+	margin-left: -400px;
+	justify-content: center;
+}
+
+/* .hidden {
+	position: absolute;
+	margin-top: 200px;
+} */
+
+
+
+.player-dott {
+	/* margin-left: 0px; */
+	/* margin-top: 0; */
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: white;
+	border-radius: 100%;
+	border: 2px black solid;
+}
+
+.player-line {
+	position: relative;
+	border-radius: 4px;
+	margin-top: 10px;
+	height: 15px;
+	background-color: rgba(10, 96, 107, 0.555);
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.player-line{
+	transition: .3s ease-in-out;
+}
+
+.player-line:hover {
+	cursor: pointer;
+}
+
+.splayer-line {
+	margin-top: 10px;
+	padding: 20px 0;
+}
+
+.s-post-play {
+	border-radius: 20px;
+	background-color: rgba(0, 0, 0, 0.397);
+	padding: 0px 25px;
+	z-index: 1;
+	position: fixed;
+	bottom: 5px;
+	transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.hidden {
+	transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+	bottom: -500px;
+}
+
+.s-post-play audio {
+	margin-bottom: 20px;
+	
+}
+
+.sp-btns {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.closebtnsub {
+	margin-bottom: 3px;
+	border-radius: 60%;
+	width: 20px;
+	height: 20px;
+	background-color: white;
+	position: relative;
+	z-index: 0;
+}
+
+.close img {
+	position: absolute;
+	z-index: 2;
+	left: 0;
+}
+
+.copy-text {
+	font-weight: 100;
+	font-size: 14px;
+	opacity: 0.25;
+	text-align: center;
+	margin-bottom: 40px;
+}

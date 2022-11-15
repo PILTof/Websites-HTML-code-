@@ -1,0 +1,73 @@
+@charset "UTF-8";
+html {
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html,
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: normal;
+}
+
+body {
+  font-family: "Exo2.0-Regular", sans-serif;
+}
+
+
+@font-face {
+  font-family: "Exo2.0-Bold";
+  src: url("../fonts/Exo2.0-Bold.woff2") format("woff2"), url("../fonts/Exo2.0-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Exo2.0-Regular";
+  src: url("../fonts/Exo2.0-Regular.woff2") format("woff2"), url("../fonts/Exo2.0-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Exo2.0-Light";
+  src: url("../fonts/Exo2.0-Light.woff2") format("woff2"), url("../fonts/Exo2.0-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+.v-application .accent {
+  background-color: #2196f3 !important;
+  border-color: #2196f3 !important;
+}
+.v-application .accent--text {
+  color: #2196f3 !important;
+  caret-color: #2196f3 !important;
+}

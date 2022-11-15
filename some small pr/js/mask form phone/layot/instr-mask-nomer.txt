@@ -1,0 +1,32 @@
+Файл maska-nomera.js скопировать в папку js
+
+Перед </body> вставить
+
+
+      <script src="js/maska-nomera.js" type="text/javascript" ></script>
+
+      <script>
+$('.art-stranger').mask('+7 (999) 999-99-99');
+
+$.fn.setCursorPosition = function(pos) {
+  if ($(this).get(0).setSelectionRange) {
+    $(this).get(0).setSelectionRange(pos, pos);
+  } else if ($(this).get(0).createTextRange) {
+    var range = $(this).get(0).createTextRange();
+    range.collapse(true);
+    range.moveEnd('character', pos);
+    range.moveStart('character', pos);
+    range.select();
+  }
+};
+
+
+$('input[type="tel"]').click(function(){
+    $(this).setCursorPosition(4);  // set position number
+  });
+</script>
+
+
+В инпуте к класу дописать через пробле art-stranger
+
+Если надо маска под Украинский номер или любой другой, то в скрипте выше меняем +7 (999) 999-99-99 на +3 (809) 999-99-99 и т.д. 

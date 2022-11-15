@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FONTS-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- FONTS-->
+
+  <link rel="stylesheet" href="css/style.css">
+  
+  <title>DashboardUI</title>
+</head>
+<body>
+  <div class="page">
+    
+    <div class="container">
+      <div class="filters">
+        <div class="mmetro filter">
+          <div class="fmetro unhead">
+            <div class="fm f-text">
+              Близость к метро
+            </div>
+            <img class="imgupm li" src="img/chevron-up.svg" alt="">
+          </div>
+          <div class="fmvariations">
+            <div class="fmvarwrapp">
+              <div class="fm-text-1 li fmtextin f-btn">< 10</div>
+              <div class="fm-text-2 li fmtextin f-btn">10-20</div>
+              <div class="fm-text-3 li fmtextin f-btn">20-30</div>
+              <div class="fm-text-4 li fmtextin f-btn">30+</div>
+
+            </div>
+            <div class="fm-text-5 li f-btn">Любая</div>
+          </div>
+        </div>
+
+        <div class="deadline filter">
+          <div class="fdl unhead">
+            <div class="dl f-text">
+              Срок сдачи
+            </div>
+            <img class="imgupm li" src="img/chevron-up.svg" alt="">
+          </div>
+          <div class="dlvariations">
+            <div class="dlvar-1">
+              <form action="" method="post" class="dlvars">
+                <div class="dl-inputs">
+                  <input id="any" name="radio" type="radio">
+                  <label for="any">Любая</label>
+                </div>
+                <div class="dl-inputs">
+                  <input id="ready" name="radio" type="radio">
+                <label for="ready">Сдан</label>
+              </div>
+              <div class="dl-inputs">
+                <input id="now" name="radio" type="radio">
+                <label for="now">В этом году</label>
+              </div>
+              <div class="dl-inputs">
+                <input id="after" name="radio" type="radio">
+                <label for="after">В следующем году</label>
+              </div>
+            
+                
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="ad-options filter">
+          <div class="ado unhead">
+            <div class="ado f-text">
+              Дополнительные опции
+            </div>
+            <img src="img/chevron-up.svg" alt="" class="imgupm li chev3">
+          </div>
+          <div class="adovariations">
+            <div class="adovar">
+              <div class="ado-check">
+                <input type="checkbox" name="ado" id="nocar">
+                <label for="nocar">Двор без машин</label>
+              </div>
+              <div class="ado-check">
+                <input type="checkbox" name="ado" id="heigh">
+                <label for="heigh">Высокие потолки</label>
+              </div>
+              <div class="ado-check">
+                <input type="checkbox" name="ado" id="pano">
+                <label for="pano">Панорамные окна</label>
+              </div>
+              <div class="ado-check">
+                <input type="checkbox" name="ado" id="clad">
+                <label for="clad">Есть кладовые</label>
+              </div>
+              <div class="ado-check">
+                <input type="checkbox" name="ado" id="tiny">
+                <label for="tiny">Малоэтажный</label>
+              </div>
+            </div>
+            <div class="adolinkw">
+              <a class="adolink" href="#">Показать еще</a>
+            </div>
+            
+          </div>
+        </div>
+
+        <div class="servicesswitch">
+          <div class="s-switch">
+            <div class="s-1"></div>
+            <div class="s-2"></div>
+          </div>
+          <div class="s-text">Услуги 0%</div>
+        </div>
+
+        <div class="accept-f-btn li">
+          Применить фильтры
+        </div>
+        <div class="decile-f-btn li">
+          <img src="img/x.svg" alt="">
+           <div class="decile-f-text">Сбросить фильтры</div> 
+        </div>
+
+      </div>
+        <div class="cards">
+          <div class="card3">
+            <div class="solocard">
+              <div class="head-text">Комфорт</div>
+              <div class="head-text2">Рассрочка 12 мес.</div>
+              <div class="imagecard" style="background-image: url(/img/img.jpg);">
+                <!--<img src="img/img.jpg" alt="">-->
+              </div>
+              <div class="card-info">
+                <div class="info-title">ЖК Ильинские луга</div>
+                <div class="info-desc">Срок сдачи до 4 кв. 2022 г.</div>
+                <div class="info-geo">
+                  <img src="img/Moscow_Metro 1.svg" alt="">
+                  <a class="info-geo-text" href="#">Октябрьская</a>
+                </div>
+                <div class="info-geo-dop">пр. Льва Толстого 180А</div>
+              </div>
+            </div>
+            <div class="solocard">
+              <div class="head-text">Комфорт</div>
+              <div class="head-text2">Рассрочка 12 мес.</div>
+              <div class="imagecard" >
+              </div>
+              <div class="card-info">
+                <div class="info-title">ЖК Ильинские луга</div>
+                <div class="info-desc">Срок сдачи до 4 кв. 2022 г.</div>
+                <div class="info-geo">
+                  <img src="img/Moscow_Metro 1.svg" alt="">
+                  <a class="info-geo-text" href="#">Октябрьская</a>
+                </div>
+                <div class="info-geo-dop">пр. Льва Толстого 180А</div>
+              </div>
+            </div>
+            <div class="solocard">
+              <div class="head-text">Комфорт</div>
+              <div class="head-text2">Рассрочка 12 мес.</div>
+              <div class="imagecard">
+              </div>
+              <div class="card-info">
+                <div class="info-title">ЖК Ильинские луга</div>
+                <div class="info-desc">Срок сдачи до 4 кв. 2022 г.</div>
+                <div class="info-geo">
+                  <img src="img/Moscow_Metro 1.svg" alt="">
+                  <a class="info-geo-text" href="#">Октябрьская</a>
+                </div>
+                <div class="info-geo-dop">пр. Льва Толстого 180А</div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="cards">
+          <div class="card3">
+            <div class="solocard">
+              <div class="head-text">Комфорт</div>
+              <div class="head-text2">Рассрочка 12 мес.</div>
+              <div class="imagecard">
+              </div>
+              <div class="card-info">
+                <div class="info-title">ЖК Ильинские луга</div>
+                <div class="info-desc">Срок сдачи до 4 кв. 2022 г.</div>
+                <div class="info-geo">
+                  <img src="img/Moscow_Metro 1.svg" alt="">
+                  <a class="info-geo-text" href="#">Октябрьская</a>
+                </div>
+                <div class="info-geo-dop">пр. Льва Толстого 180А</div>
+              </div>
+            </div>
+            <div class="solocard">
+              <div class="head-text">Комфорт</div>
+              <div class="head-text2">Рассрочка 12 мес.</div>
+              <div class="imagecard">
+              </div>
+              <div class="card-info">
+                <div class="info-title">ЖК Ильинские луга</div>
+                <div class="info-desc">Срок сдачи до 4 кв. 2022 г.</div>
+                <div class="info-geo">
+                  <img src="img/Moscow_Metro 1.svg" alt="">
+                  <a class="info-geo-text" href="#">Октябрьская</a>
+                </div>
+                <div class="info-geo-dop">пр. Льва Толстого 180А</div>
+              </div>
+            </div>
+            <div class="solocard">
+              <div class="head-text">Комфорт</div>
+              <div class="head-text2">Рассрочка 12 мес.</div>
+              <div class="imagecard">
+              </div>
+              <div class="card-info">
+                <div class="info-title">ЖК Ильинские луга</div>
+                <div class="info-desc">Срок сдачи до 4 кв. 2022 г.</div>
+                <div class="info-geo">
+                  <img src="img/Moscow_Metro 1.svg" alt="">
+                  <a class="info-geo-text" href="#">Октябрьская</a>
+                </div>
+                <div class="info-geo-dop">пр. Льва Толстого 180А</div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="cards">
+          <div class="card3">
+            <div class="solocard">
+              <div class="head-text">Комфорт</div>
+              <div class="head-text2">Рассрочка 12 мес.</div>
+              <div class="imagecard">
+              </div>
+              <div class="card-info">
+                <div class="info-title">ЖК Ильинские луга</div>
+                <div class="info-desc">Срок сдачи до 4 кв. 2022 г.</div>
+                <div class="info-geo">
+                  <img src="img/Moscow_Metro 1.svg" alt="">
+                  <a class="info-geo-text" href="#">Октябрьская</a>
+                </div>
+                <div class="info-geo-dop">пр. Льва Толстого 180А</div>
+              </div>
+            </div>
+            <div class="solocard">
+              <div class="head-text">Комфорт</div>
+              <div class="head-text2">Рассрочка 12 мес.</div>
+              <div class="imagecard">
+              </div>
+              <div class="card-info">
+                <div class="info-title">ЖК Ильинские луга</div>
+                <div class="info-desc">Срок сдачи до 4 кв. 2022 г.</div>
+                <div class="info-geo">
+                  <img src="img/Moscow_Metro 1.svg" alt="">
+                  <a class="info-geo-text" href="#">Октябрьская</a>
+                </div>
+                <div class="info-geo-dop">пр. Льва Толстого 180А</div>
+              </div>
+            </div>
+            <div class="solocard">
+              <div class="head-text">Комфорт</div>
+              <div class="head-text2">Рассрочка 12 мес.</div>
+              <div class="imagecard">
+              </div>
+              <div class="card-info">
+                <div class="info-title">ЖК Ильинские луга</div>
+                <div class="info-desc">Срок сдачи до 4 кв. 2022 г.</div>
+                <div class="info-geo">
+                  <img src="img/Moscow_Metro 1.svg" alt="">
+                  <a class="info-geo-text" href="#">Октябрьская</a>
+                </div>
+                <div class="info-geo-dop">пр. Льва Толстого 180А</div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="button">
+          <img class="btn-img" src="img/plus-circle.svg" alt="">
+          <div class="btn-text">Показать еще</div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+.input_block {
+    margin: 0 0 25px 0;
+    width: 344px;
+    height: 66px;
+    position: relative;
+}
+
+.v-input__slot input {
+    display: block;
+    padding: 0;
+    width: 344px;
+    height: 64px;
+    border: none;
+    border-bottom: 2px solid #000;
+    background: none;
+    font-family: "ProximaNovaBold";
+    font-size: 24px;
+    color: #000;
+    outline: none;
+}
+
+.v-input__slot label {
+    display: block;
+    width: 344px;
+    height: 64px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.v-input__slot label span {
+    display: block;
+    height: 24px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    font-family: "ProximaNovaBold";
+    font-size: 24px;
+    line-height: 24px;
+    color: #000;
+    position: absolute;
+    top: 21px;
+    left: 0;
+}
+
+.v-input__slot input:focus+label span {
+    font-size: 14px;
+    top: -10px;
+}
+
+.has_value+label span {
+    font-size: 14px;
+    top: -10px;
+}

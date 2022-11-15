@@ -1,0 +1,16 @@
+.shomeshit {
+	border: red solid 4px;
+}
+
+.post-solo {
+	display: flex;
+	flex-direction: column;
+}
+
+.hidden {
+	display: none;
+}
+
+.create-btns {
+	display: flex;
+}
